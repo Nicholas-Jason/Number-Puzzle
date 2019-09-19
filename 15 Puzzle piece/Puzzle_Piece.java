@@ -62,18 +62,101 @@ public class Puzzle_Piece
         }
     }
     
+    public void move_to_Left()
+    {
+     for(int i = 0;i< puzzle.length;i++)
+        {
+            for(int j = 0; j < puzzle[i].length;j++)
+            {
+                if(j >0)
+                {
+                    String temp = puzzle[i][j-1];
+                    if (temp ==" ")
+                    {
+                        //Does not move other pieces
+                        String prev = puzzle[i][j];
+                        puzzle[i][j] = temp;
+                        puzzle[i][j-1] = prev;
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    public void move_Down()
+    {
+        for(int i = 0;i< puzzle.length;i++)
+        {
+            for(int j = 0; j < puzzle[i].length;j++)
+            {
+                if(i + 1 != puzzle.length)
+                {
+                    String temp = puzzle[i+1][j];
+                    if (temp ==" ")
+                    {
+                        //Does not move other pieces
+                        String prev = puzzle[i][j];
+                        puzzle[i][j] = temp;
+                        puzzle[i+1][j] = prev;
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    public void move_Up()
+    {
+        for(int i = 0;i< puzzle.length;i++)
+        {
+            for(int j = 0; j < puzzle[i].length;j++)
+            {
+                if(i >0)
+                {
+                    String temp = puzzle[i-1][j];
+                    if (temp ==" ")
+                    {
+                        //Does not move other pieces
+                        String prev = puzzle[i][j];
+                        puzzle[i][j] = temp;
+                        puzzle[i-1][j] = prev;
+                        
+                    }
+                }
+            }
+        }
+    }
+    
     public static void main(String [] args)
     {
         Puzzle_Piece p = new Puzzle_Piece(3);
         p.populatePuzzle();
-        p.move_to_Right();
-        for(int k = 0; k < p.puzzle.length;k++)
+        for(int o = 0; o < p.puzzle[2].length;o++)
         {
-            for(int m= 0; m < p.puzzle.length;m++)
-            {
-              System.out.println(p.puzzle[0][m]);
-            }
-
+            System.out.println(p.puzzle[2][o]);
         }
+        
+        p.move_to_Right();
+        p.move_Down();
+        p.move_to_Left();
+        p.move_Up();
+        for(int m= 0; m < p.puzzle[2].length;m++)
+        {
+              System.out.println(p.puzzle[2][m]);
+        }
+
+        
     }
+    }
+    
+    
+    
+
+
+    }
+    
+  
+    
+ 
 }
