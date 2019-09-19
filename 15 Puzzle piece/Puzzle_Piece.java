@@ -3,7 +3,7 @@
  * Write a description of class Puzzle_Piece here.
  *
  * @author Nicholas-Jason Roache
- * @version June 12, 2018
+ * @version September 19, 2019
  */
 
 public class Puzzle_Piece
